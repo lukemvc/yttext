@@ -25,7 +25,6 @@ class helper:
             text_url = match.group(1)
             full = 'https://www.youtube.com/api/timedtext' + text_url
             timed_url = json.loads('"' + full + '"')
-            timed_url = timed_url
             if 'Twitch+Chat' in timed_url:
                 raise Exception("Failed to retrieve subtitles")
             return timed_url
