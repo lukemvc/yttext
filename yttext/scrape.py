@@ -10,8 +10,8 @@ def get_text(video_id: str, folder: str = None):
         timed_text_url = helper.get_timed_text_url(video_id)
         text_list = helper.get_text(video_id, timed_text_url)
         sanitized_text = helper.sanitize_text(text_list)
-        words = len(sanitized_text)
         helper.write_text(video_id, sanitized_text, folder)
+        words = len(sanitized_text.split())
         print(f"{words} words successfully scraped.")
     except Exception as e:
         print(f"Error occurred while scraping text for video {video_id}: {str(e)}")
