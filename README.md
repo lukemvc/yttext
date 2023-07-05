@@ -1,4 +1,4 @@
-# YTTEXT 
+# yttext
 
 ## Overview
 The YTTEXT package provides a convenient way to scrape subtitles from YouTube videos and save them to text files. It offers a simple interface for retrieving and processing subtitles, making it easy to extract text data for analysis or other purposes.
