@@ -12,7 +12,6 @@ upgrade
 ```
 pip install --upgrade yttext
 ```
-<br>
 
 ## Usage
 
