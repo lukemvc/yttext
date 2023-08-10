@@ -19,12 +19,19 @@ def get_text(video_id: str, folder: str = None):
 class helper:
     def get_timed_text_url(vid_id):
         resp = requests.get(f'https://www.youtube.com/watch?v={vid_id}')
+        with open('test.txt', 'w') as f:
+            f.write(resp.text)
+
         format = r'https://www.youtube.com/api/timedtext(.*?)"'
         match = re.search(format, resp.text)
         if match:
             text_url = match.group(1)
-            full = 'https://www.youtube.com/api/timedtext' + text_url
+            print(text_url)
+            u, _ = text_url.split('lang')
+            full = 'https://www.youtube.com/api/timedtext' + u + 'lang=en-US'
             timed_url = json.loads('"' + full + '"')
+            print(full)
+
             if 'Twitch+Chat' in timed_url:
                 raise Exception("Failed to retrieve subtitles")
             return timed_url
